@@ -1,9 +1,9 @@
 # movie-finder
-Demo Web page URL "https://yusukeyoshino.github.io/movie-finder/
+Demo Web page URL https://yusukeyoshino.github.io/movie-finder/
  
 ## Overview
  
-This React app was created for chingu solo project tier 2 Using The Movie Database (TMDb) API.
+This React app was created for chingu solo project Tier 2 Using The Movie Database (TMDb) API.
  
 # Features
  
@@ -14,17 +14,17 @@ Each title has the following information, Movie poster image,Title, Released dat
  
 # Running this project locally
 ### From the repo:
-1.Clone this project locally
-2.Run `npm install` in command line
-3.Run `npm run start` in command line
-4.Enjoy
+1. Clone this project locally
+2. Run `npm install` in command line
+3. Run `npm run start` in command line
+4. Enjoy
  
 # Dependencies
  
- *Babel
- *React
- *React-DOM
- *Webpack
- *axios
+ * Babel
+ * React
+ * React-DOM
+ * Webpack
+ * axios
  
  
