@@ -17,11 +17,13 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
+  "homepage": "https://yusukeyoshino.github.io/movie-finder/",
   "browserslist": {
     "production": [
       ">0.2%",
