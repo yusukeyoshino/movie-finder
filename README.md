@@ -1,22 +1,30 @@
 # movie-finder
+Demo Web page URL "https://yusukeyoshino.github.io/movie-finder/
  
-Chingu Solo Project Tier 2
+## Overview
+ 
+This React app was created for chingu solo project tier 2 Using The Movie Database (TMDb) API.
  
 # Features
  
-Using The Movie Database (TMDb) API.
-Searching movies from user input.
-Responsive design.
- 
-# Requirement
- 
-Using React-create-app
+The user type movie title in input and click search button
+Loading the movie data from (TMDb) API and show them on the screen up to 20 titles.
+Each title has the following information, Movie poster image,Title, Released date and short description.
 
  
-# Note
- Demo Web page URL "https://yusukeyoshino.github.io/movie-finder/"
+# Running this project locally
+### From the repo:
+1.Clone this project locally
+2.Run `npm install` in command line
+3.Run `npm run start` in command line
+4.Enjoy
  
-# Author
+# Dependencies
  
- Yusuke Yoshino
+ *Babel
+ *React
+ *React-DOM
+ *Webpack
+ *axios
+ 
  
