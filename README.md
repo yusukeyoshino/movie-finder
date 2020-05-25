@@ -7,8 +7,8 @@ This React app was created for chingu solo project Tier 2 Using The Movie Databa
  
 # Features
  
-The user type movie title in input and click search button
-Loading the movie data from (TMDb) API and show them on the screen up to 20 titles.
+The user type movie title in input and click search button.<br>
+Loading the movie data from (TMDb) API and show them on the screen up to 20 titles.<br>
 Each title has the following information, Movie poster image,Title, Released date and short description.
 
  
