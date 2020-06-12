@@ -1,5 +1,6 @@
 import React from 'react';
 import './Card.css';
+import {Link,withRouter} from 'react-router-dom';
 
 const Card = (props) => {
 
@@ -17,6 +18,13 @@ const Card = (props) => {
         return title;
     }
 
+    const handleToDetail = (id) => {
+        const selectedMovie = props.movies.filter(movie=> {
+            return movie.id === id;
+        })
+        props.history.push('/detail');
+
+    }
 
     const moviesTitle = props.movies.map(movie => {
         return(
@@ -32,7 +40,7 @@ const Card = (props) => {
                 <div className={'description__detail'}>
                     <h5 style={{marginTop:'20px'}}>{`Release Date: ${movie.release_date}`}</h5>
                     <div style={{marginTop:'20px'}}>
-                        <button className={'detail-btn'}>See Detail</button>
+                        <Link to={`/detail/${movie.id}`} className={'detail-btn'}>See Detail</Link>
                     </div>
                     </div>
                 </div>
@@ -53,4 +61,4 @@ const Card = (props) => {
     }
 }
 
-export default Card;
+export default withRouter(Card);

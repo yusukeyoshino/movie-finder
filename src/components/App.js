@@ -1,55 +1,57 @@
-import React,{Component} from 'react';
+import React,{useState} from 'react';
 import SearchBar from './SearchBar';
-import Header from './Header';
+import Header from './Header/Header';
 import Card from './card/Card';
 import axios from 'axios';
 import '../reset.css';
+import Layout from '../hoc/Layout/Layout';
+import {BrowserRouter,Route,withRouter} from 'react-router-dom';
+import SignUp from './SignUp/SignUp';
+import movieDetail from './MovieDetail/MovieDetail';
 
+const App = () => {
 
-class App extends Component {
+    const [movies,setMovies] = useState([]);
+    const [errorMessage,setErrorMessage] = useState('');
+    const [loading,setLoading] = useState(false);
+    const [selectedMovie,setSelectedMovie] = useState(null);
 
-    state = {movies: [],
-             errorMessage: '',
-             loading: false}
-
-    onSubmitClick = async (term)=> {
+    const onSubmitClick = async (term)=> {
         if(term){
-            this.setState({movies:[],
-                           loading:true ,
-                           errorMessage:'' });
+            setLoading(true);
             try {
                 const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=ceb0bffcd90a1d670903f250bde029d8&language=en-US&query=${term}&include_adult=false`);
                 console.log(response.data.results);
-                this.setState({loading:false});
+                setLoading(false);
                 if(response.data.results.length != 0){
-                    this.setState({movies: response.data.results})
+                    setMovies(response.data.results)
                 } else {
-                    this.setState({errorMessage:`There is no "${term}" results.`})
+                    setErrorMessage(`There is no "${term}" results.`);
                 }
                 
             } catch {
-                this.setState({loading:false})
-                this.setState({errorMessage: 'Request failed. Please Try it again.'})
+                setLoading(false);
+                setErrorMessage('Request failed. Please Try it again.');
             }  
         } else {
-            this.setState({errorMessage: 'Input is empty. Try it again.'})
+                setErrorMessage('Input is empty. Try it again.');
         }
-
 
         
     }
+    
+  
 
-    render(){
-        return (
-            <div>
+    return (
+        <div>
+            <BrowserRouter>
                 <Header />
-                <SearchBar onTermSubmit={this.onSubmitClick}/>
-                <div style={{color:'red',
-                             textAlign:'center' }}>{this.state.errorMessage}</div>
-                <Card movies={this.state.movies} loading={this.state.loading}/>
-            </div>  
-        );
-    }
+                <Route path='/' exact render={(props) => <Layout {...props}  onSubmitClick={onSubmitClick} errorMessage={errorMessage} movies={movies} loading={loading}/>} />
+                <Route path='/signup' component={SignUp}/>
+                <Route path='/detail/:id'  component={movieDetail}/>
+            </BrowserRouter>
+        </div>  
+    );
 }
 
 export default App;
